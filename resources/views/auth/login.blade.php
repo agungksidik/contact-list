@@ -7,8 +7,14 @@
             Login
         </div>
         <div class="card-body">
-            <form action="/login" method="post">
+            <form action="/logged_in" method="post">
                 @csrf
+
+                @if (\Session::has('error'))
+                    <div class="alert alert-danger">
+                        {!! \Session::get('error') !!}
+                    </div>
+                @endif
 
                 <div class="form-group">
                     <label for="email">Email</label>
@@ -24,6 +30,18 @@
                         class="form-control @error('password') is-invalid @enderror">
                     @error('password')
                     <span class="invalid-feedback">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="form-group">
+                    <label for="role">Select Role</label>
+                    <select class="form-select @error('role') is-invalid @enderror" name="role" id="role" aria-label="Default select example" required>
+                        <option value="">Select Role</option>
+                        <option value="super admin">Super Admin</option>
+                        <option value="admin">Admin</option>
+                        <option value="agen">Agen</option> 
+                    </select>
+                    @error('role')
+                        <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
 
