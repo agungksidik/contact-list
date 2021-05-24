@@ -24,8 +24,8 @@ class LoginController extends Controller{
                 return redirect('/dashboard');
             }
         } else {
-            return redirect('/login')->with('error', 'Role tidak sesuai.');
+            return redirect('/login')->with('error', 'Role tidak sesuai.')->withInput();
         }        
-        return redirect('/login')->with('error', 'Email atau password salah');
+        return redirect('/login')->with('error', 'Email atau password salah')->withInput();
     }
 }

@@ -21,12 +21,12 @@
 
                         @can('create contact')
                             <li class="nav-item">
-                                <a class="nav-link" href="/contact">Contact</a>
+                                <a class="nav-link" href="{{ route('contact.table') }}">Contact</a>
                             </li>
                         @endcan
                         @can('create task')
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Task</a>
+                            <a class="nav-link" href="{{ route('task.table') }}">Task</a>
                         </li>
                         @endcan
                         @role('super admin')

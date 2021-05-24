@@ -23,19 +23,23 @@
                         <th>Phone</th>
                         <th>Email</th>
                         <th>Action</th>
-                    </tr>
-
+                    </tr>                    
                     @foreach($contacts as $index => $contact)
                     <tr>
-                        <td>{{ $index + 1 }}</td>
+                        <td>{{ $index + $contacts->firstItem() }}</td>
                         <td>{{ $contact->name }}</td>
                         <td>{{ $contact->phone }}</td>
                         <td>{{ $contact->email }}</td>
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                                <a href="" class="btn btn-primary">Edit</a>                                
-                                <a href="" class="btn btn-danger">Delete</a>
-                                <a href="" class="btn btn-warning">Assign to Agen</a>
+                                <a href="{{ route('contact.edit', $contact) }}" class="btn btn-primary">Edit</a>      
+                                <form action="{{ route('contact.delete', $contact) }}" method="POST">        
+                                    @csrf
+                                    @method('DELETE')      
+                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Delete</button>            
+                                    
+                                </form> 
+                                <a href="{{ route('contact.assign', $contact) }}" class="btn btn-warning">Assign to Agen</a>
                             </div>
                         </td>
                     </tr>

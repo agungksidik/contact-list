@@ -19,7 +19,7 @@
                 <div class="form-group">
                     <label for="email">Email</label>
                     <input type="text" name="email" id="email"
-                        class="form-control @error('email') is-invalid @enderror">
+                        class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}">
                     @error('email')
                     <span class="invalid-feedback">{{ $message }}</span>
                     @enderror
@@ -36,9 +36,9 @@
                     <label for="role">Select Role</label>
                     <select class="form-select @error('role') is-invalid @enderror" name="role" id="role" aria-label="Default select example" required>
                         <option value="">Select Role</option>
-                        <option value="super admin">Super Admin</option>
-                        <option value="admin">Admin</option>
-                        <option value="agen">Agen</option> 
+                        <option value="super admin" @if (old('role') == "super admin") {{ 'selected' }} @endif>Super Admin</option>
+                        <option value="admin" @if (old('role') == "admin") {{ 'selected' }} @endif>Admin</option>
+                        <option value="agen" @if (old('role') == "agen") {{ 'selected' }} @endif>Agen</option> 
                     </select>
                     @error('role')
                         <span class="text-danger">{{ $message }}</span>
