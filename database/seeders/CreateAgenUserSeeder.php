@@ -26,5 +26,9 @@ class CreateAgenUserSeeder extends Seeder
             ->givePermissionTo(['create task', 'edit task', 'show task', 'delete task']);       
 
         $userAgen->assignRole($agen);
+
+        User::factory(50)->create()->each(function ($user) {
+            $user->assignRole('agen'); 
+        });
     }
 }

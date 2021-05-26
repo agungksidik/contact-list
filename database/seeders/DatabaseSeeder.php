@@ -19,6 +19,8 @@ class DatabaseSeeder extends Seeder
             CreateAdminUserSeeder::class,
             CreateAgenUserSeeder::class,
             ContactSeeder::class,
+            TaskSeeder::class,
+            FollowUpSeeder::class,
           ]);
     }
 }

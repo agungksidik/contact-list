@@ -1,10 +1,10 @@
 <?php
 
 use App\Http\Controllers\Contact\ContactController;
+use App\Http\Controllers\FollowUp\FollowUpController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Task\TaskController;
 use Illuminate\Support\Facades\Route;
-use Spatie\Permission\Models\Role;
 
 Route::get('/', function() {
     return view('/home');
@@ -33,4 +33,8 @@ Route::group(['middleware' => ['role:super admin|agen']], function () {
     Route::prefix('task')->group(function () {
         Route::get('', [TaskController::class, 'index'])->name('task.table');   
     });
+    Route::prefix('followup')->group(function () {
+        Route::get('{id}', [FollowUpController::class, 'index'])->name('followup.table');
+        Route::post('store', [FollowUpController::class, 'store'])->name('followup.store');
+    });    
 });

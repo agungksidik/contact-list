@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use \Spatie\Permission\Models\Role;
-
 class LoginController extends Controller{
 
     public function authenticate(Request $request){
@@ -18,7 +16,6 @@ class LoginController extends Controller{
         $credentials = $request->only('email', 'password');
         $role = $request->role;
         $user = User::where('email', $request->email)->first();
-
         if($user->hasRole($role)) {
             if (Auth::attempt($credentials)) {            
                 return redirect('/dashboard');

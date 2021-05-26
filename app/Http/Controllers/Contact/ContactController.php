@@ -8,15 +8,14 @@ use App\Models\Task;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Spatie\Permission\Models\Role;
 
 class ContactController extends Controller
 {
     public function index()
-    {       
+    {
         return view('contact.table', [
             'contacts' => Contact::latest()->paginate(10),
-        ])->with('no', 1);
+        ]);
     }
 
     public function create()
@@ -59,9 +58,7 @@ class ContactController extends Controller
     {        
         Task::insert([
             'contact_id' => $request->contact_id,
-            'user_id' => $request->agen_id,
-            'remark' => null,
-            'status' => 'uncontacted',
+            'user_id' => $request->agen_id,            
             'created_at' => Carbon::now(),
         ]);
 

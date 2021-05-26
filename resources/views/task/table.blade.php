@@ -15,32 +15,20 @@
                 <table class="table table-hover">
                     <tr>
                         <th>No</th>
-                        <th>Name</th>
-                        <th>Phone</th>
-                        <th>Remark</th>
-                        <th>Status</th>
+                        <th>Name Contact</th>
+                        <th>Phone Contact</th>                        
+                        <th>Agen</th>
                         <th>Action</th>
                     </tr>                    
                     @foreach($tasks as $index => $task)
                     <tr>
                         <td>{{ $index + $tasks->firstItem() }}</td>
                         <td>{{ $task->contact->name }}</td>
-                        <td>{{ $task->contact->phone }}</td>
-                        <td>{{ $task->remark }}</td>
-                        <td>
-                            @if ($task->status == 'uncontacted')
-                                <span class="badge rounded-pill bg-danger">{{ $task->status }}</span>
-                            @elseif ($task->status == 'pending')
-                                <span class="badge rounded-pill bg-warning">{{ $task->status }}</span>
-                            @elseif ($task->status == 'qualified')
-                                <span class="badge rounded-pill bg-primary">{{ $task->status }}</span>
-                            @elseif ($task->status == 'lost')
-                                <span class="badge rounded-pill bg-success">{{ $task->status }}</span>
-                            @endif
-                        </td>
+                        <td>{{ $task->contact->phone }}</td>                        
+                        <td>{{ $task->user->name }}</td>
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                                <a href="#" class="btn btn-primary">Follow up & View history</a> 
+                                <a href="{{ route('followup.table', $task->id) }}" class="btn btn-primary">Follow up & View history</a> 
                             </div>
                         </td>
                     </tr>
