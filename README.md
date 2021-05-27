@@ -19,13 +19,13 @@ Dillinger uses a number of open source projects to work properly:
 
 > 1.	clone github,
  	git clone https://github.com/agungksidik/contact-list.git
-2. 	composer install
-3. 	rename “.env.example” menjadi “.env”
-4. 	buat database dengan nama “contactlist”
-5. 	php artisan migrate
-6. 	php artisan db:seed
-7. 	php artisan serve
-8. 	buka browser masukan url “http://127.0.0.1:8000/login”
+> 2. 	composer install
+> 3. 	rename “.env.example” menjadi “.env”
+> 4. 	buat database dengan nama “contactlist”
+> 5. 	php artisan migrate
+> 6. 	php artisan db:seed
+> 7. 	php artisan serve
+> 8. 	buka browser masukan url “http://127.0.0.1:8000/login”
 
 
 ## Packages
@@ -33,8 +33,8 @@ Dillinger uses a number of open source projects to work properly:
 
 | Plugin | README |
 | ------ | ------ |
-| Spatie | [plugins/dropbox/README.md][PlDb] |
-| Livewire | [plugins/github/README.md][PlGh] |
+| Spatie | [Spatie](https://spatie.be/docs/laravel-permission/v3/installation-laravel) |
+| Livewire | [Livewire](https://spatie.be/docs/laravel-permission/v3/installation-laravel) |
 
 ## Login
 
